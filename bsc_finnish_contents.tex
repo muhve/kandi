@@ -1,15 +1,34 @@
 \chapter{Johdanto}
-Perinteisesti yritysten käyttämät toiminnanohjausjärjestelmät tai muut olennaiset ohjelmistot ovat olleet asennettuina asiakkaan omille laitteille. Ohjelmistojen alettua siirtyä enenevissä määrin pilviympäristöihin, myös palveluiden palvelinkustannusten optimointi on noussut olennaiseksi kysymykseksi. Kun ohjelmisto onkin ajossa pilvipalvelussa perinteisen oman palvelinympäristön sijaan, on mahdollista tehostaa palvelinten käyttöastetta moniasiakasmallia hyödyntämällä.
+Perinteisesti yritysten käyttämät toiminnanohjausjärjestelmät tai muut olennaiset ohjelmistot ovat olleet asennettuina asiakkaan omille laitteille, mutta nää ovat pikkuhiljaa alkaneet siirtymään pilviympäristöihin \cite{kaplan2007saas}. Tämän johdosta myös palveluiden palvelinkustannusten optimointi on noussut olennaiseksi kysymykseksi. Kun ohjelmisto onkin ajossa pilvipalvelussa perinteisen oman palvelinympäristön sijaan, on mahdollista tehostaa palvelinten käyttöastetta moniasiakasmallia hyödyntämällä \cite{momm2011qualitative}.
 
-Moniasiakasjärjestelmää suunnitellessa on kuitenkin omat haasteensa, jotka voivat aiheuttaa suoria ja epäsuoria kustannuksia. Tämän tutkielman tarkoituksena on pureutua näihin kysymyksiin ja selvittää millaisia haasteita moniasiakaspalveluissa on aiemmin havaittu ja miten näitä on ratkaistu.
+Moniasiakasjärjestelmää suunnitellessa on kuitenkin omat haasteensa, jotka voivat aiheuttaa suoria ja epäsuoria kustannuksia \cite{bezemer2010multi}. Tämän tutkielman tarkoituksena on pureutua näihin kysymyksiin ja selvittää millaisia haasteita moniasiakaspalveluissa on aiemmin havaittu ja miten näitä on ratkaistu. Tavoitteena on ymmärtää, millaisia kompromisseja asiakaskohtaisesta järjestelmästä moniasiakasmalliin siirtyessä on tehtävä, ja missä tilanteissa se on järkevää.
 
-Moniasiakasjärjestelmät ovat nykyään huomattavasti yleistyneet. Niiden haasteiden tutkiminen on kuitenkin edelleen mielenkiintoista, jotta voidaan tunnistaa tilanteet, joihin tällainen malli ei sovellu tai millaisissa tapauksissa asiakaskohtainen malli voi olla lopulta parempi ratkaisu. Vaikka moniasiakasmallin ja asiakaskohtaisten järjestelmien välillä vaihtaminen on jälkikäteen mahdollista, voi huomattavilta ylimääräisiltä kehityskustannuksilta \cite{momm2011qualitative} välttyä pohtimalla moniasiakasmallin haasteita ja hyötyjä jo toteutusvaiheessa.
+Moniasiakasjärjestelmät ovat nykyään huomattavasti yleistyneet \cite{kaplan2007saas}. Niiden haasteiden tutkiminen on kuitenkin edelleen mielenkiintoista, jotta voidaan tunnistaa tilanteet, joihin tällainen malli ei sovellu tai millaisissa tapauksissa asiakaskohtainen malli voi olla lopulta parempi ratkaisu. Vaikka moniasiakasmallin ja asiakaskohtaisten järjestelmien välillä vaihtaminen on jälkikäteen mahdollista, voi huomattavilta ylimääräisiltä kehityskustannuksilta \cite{momm2011qualitative} välttyä pohtimalla moniasiakasmallin haasteita ja hyötyjä jo toteutusvaiheessa.
 
-Tässä tutkielmassa moniasiakasjärjestelmien haasteita selvitetään tutkimalla tapauksia tällaisista järjestelmistä, joista on kirjoitettu riittävän laaja ja luotettava kuvaus. Lisäksi moniasiakasjärjestelmän määrittelemiseksi ja aiheen pohjustamiseksi on käytetty aiemmin aiheesta kirjoitettuja artikkeleita.
+Tässä tutkielmassa moniasiakasjärjestelmien haasteita selvitetään tutkimalla tapauksia tällaisista järjestelmistä, joista on kirjoitettu riittävän laaja ja luotettava kuvaus. Lisäksi moniasiakasjärjestelmän määrittelemiseksi ja aiheen pohjustamiseksi on käytetty aiemmin aiheesta kirjoitettuja artikkeleita. Aiheesta on aiemmin kirjoitettu yleisellä tasolla jonkin verran, mutta kuvauksia tällaisista järjestelmistä on niukasti saatavilla.
 
-Ensimmäisessä kappaleessa määritellään moniasiakasjärjestelmä tämän tutkielman puitteissa, määrittämällä oleelliset piirteet, joissa se eroaa perinteisestä asiakaskohtaisesta järjestelmästä. Toisessa kappaleessa esitellään tutkitut moniasiakasjärjestelmän tapaukset. Kolmannessa kappaleessa tutkitaan eri toteutuksien eroja ja yhtäläisyyksiä, ja vedetään yhteen yleisimmät haasteet.
+Toisessa luvussa määritellään moniasiakasjärjestelmä tämän tutkielman puitteissa, määrittämällä oleelliset piirteet, joissa se eroaa perinteisestä asiakaskohtaisesta järjestelmästä. Valittuja olennaisia piirteitä on taustoitettu aiheesta aiemmin kirjoitettujen artikkelien pohjalta. Lisäksi toisessa luvussa on kerrottu asiakaskohtaisista järjestelmistä ja syistä, miksi tällaisia järjestelmiä edelleen käytetään.
 
-\chapter{Moniasiakasjärjestelmän oleellisia piirteitä}
+Kolmannessa luvussa esitellään tutkielmaan valitut tapaukset moniasiakasjärjestelmän toteutuksista, ja pureudutaan näissä järjestelmissä ilmeneviin haasteisiin ja ratkaisuihin. Jokaisesta tapauksesta on kirjoitettu oma kuvaus niistä tehtyjen artikkelien pohjalta. Neljännessä luvussa vertaillaan valittujen tapausten eroja ja yhtäläisyyksiä, ja tehdään johtopäätökset yleisimmin esiin nousseiden haasteiden ja ratkaisujen perusteella.
+
+\chapter{Moniasiakasjärjestelmän määrittely}
+Tässä luvussa tutkitaan asiakaskohtaisia järjestelmiä ja moniasiakasjärjestelmiä niiden vaihtoehtona. Käsittelen lyhyesti millaisia ohjelmistoja useimmiten toteutetaan asiakaskohtaisina järjestelminä, ja mitä hyötyjä sillä voi olla. Toisessa alaluvussa käsittelemme moniasiakasjärjestelmän piirteitä ja eroavaisuuksia asiakaskohtaisesta järjestelmästä, sekä määritelemme moniasiakasjärjestelmän käsitteen tämän tutkielman puitteissa.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16cm]{kuvat/yksi_vs_moni.png}
+  \caption{Moniasiakasjärjestelmässä jokainen asiakasorganisaatio käyttää samoja järjestelmän instansseja.}
+\end{figure}
+
+
+\section{Asiakaskohtaiset järjestelmät}
+Asiakaskohtaisina järjestelminä on perinteisesti kehitetty ainakin yrityksen liiketoiminnan hallintaan tarkoitettuja järjestelmiä, kuten toiminnanohjausjärjestelmiä ja asiakkuudenhallintajärjestelmiä \cite{stamelos2003estimating, kaplan2007saas}. Tällainen sovellus voi olla toteutettuna asiakkasyritykselle tilauksesta täysin heidän tarpeidensa mukaan tai yrityksen oman ohjelmistokehitystiimin toimesta. Molemmissa tapauksissa kustannusten arvioiminen on vaikeaa ja epäonnistuu usein \cite{stamelos2003estimating}. Kustannusten pienentämiseksi ja ennakoitavuuden parantamiseksi asiakaskohtaisia järjestelmiä on tilattu paljon myös sovelluspalveluntarjoajan kautta \cite{kaplan2007saas}.
+
+Vaikka moniasiakasjärjestelminä toimivat ohjelmistopalvelut ovat yleistyneet, monet organisaatiot edelleen käyttävät ja toteuttavat asiakaskohtaisia järjestelmiä. Syitä olla siirtymättä valmiisiin ohjelmistopalveluihin ovat moninaisia, esimerkiksi riippumattomuus palveluntarjoajasta, räätälöidyn ratkaisun tarve ja erilaiset juridiset syyt \cite{janssen2011challenges}.
+
+Toisaalta asiakaskohtainen järjestelmä voi olla myös valmiina tuotteena lisenssillä myytävä järjestelmä, jonka asiakasorganisaatio ostaa ja asentaa omalle laitteistolleen \cite{kinnunen2020yritysjarjestelmat}. Tällaisen mallin etuna asiakkaan näkökulmasta on pitkällä aikavälillä usein pienempi kokonaiskustannus. Lisäksi omalle laitteistolle asennettuun ohjelmistoon asiakas voi halutessaan tehdä lähes millaisia räätälöintejä tahansa, mutta tällaiset räätälöinnit saatta \todo{ASDF}
+
+\section{Moniasiakasjärjestelmän oleellisia piirteitä}
 Moniasiakasjärjestelmistä puhuttaessa voidaan viitata hyvinkin erilaisiin kokonaisuuksiin. Tässä luvussa määritellään moniasiakasjärjestelmä tämän tutkielman puitteissa ja tutkitaan, miten se poikkeaa asiakaskohtaisesta järjestelmästä. Bezmer ja Zaidman \cite{bezemer2010multi} määrittelevät moniasiakasjärjestelmän suoraviivaisesti ja selkeästi: Moniasiakasjärjestelmä sallii asiakkaiden jakaa sama laitteisto tarjoamalla käyttöön jaettu ohjelmiston ja tietokannan instanssi, samalla mahdollistaen ohjelman mukauttamisen asetuksilla omiin tarpeisiinsa.
 
 Bezmer ja Zeidman on lisäksi nostanut esiin seuraavia oleellisia piirteitä moniasiakasjärjestelmistä:
@@ -20,33 +39,27 @@ Bezmer ja Zeidman on lisäksi nostanut esiin seuraavia oleellisia piirteitä mon
   \item Järjestelmässä on asiakkaiden kesken jaetut tietokannat ja ohjelmiston ajossa olevat instanssit.
 \end{enumerate}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=16cm]{kuvat/yksi_vs_moni.png}
-  \caption{Moniasiakasjärjestelmässä jokainen asiakasorganisaatio käyttää samoja järjestelmän instansseja.}
-\end{figure}
-
 Useimmat nykyaikaiset ohjelmistopalvelut täyttävät nämä piirteet jossain määrin. Määritelmän rajaamiseksi tässä tutkielmassa erottelemme vielä tavalliset monen käyttäjän palvelut moniasiakasjärjestelmistä olettamalla, että moniasiakasjärjestelmässä on useita organisaatioita, joista jokaisella voi olla useita käyttäjiä ja käyttäjäryhmiä.
 
-\section{Jaetut palvelimet}
+\subsection{Jaetut palvelimet}
 Kaikki asiakkaat käyttävät samaa fyysistä laitteistoa. Tämän avulla moniasiakasjärjestelmässä saavutetaan asiakaskohtaisia järjestelmiä parempi kustannustehokkuus. Kun kaikki asiakkaat jakavat saman laitteiston, saadaan käyttöaste paremmaksi. Tämä osaltaan aiheuttaa joitain haasteita, joita käsitellään myöhemmissä luvuissa.
 
 Jaettuja palvelimia voidaan hyödyntää myös käyttämättä moniasiakasjärjestelmää, esim. ajamalla asiakaskohtaisia järjestelmiä virtualisoiduissa ympäristöissä. Tämä voi tapahtua joko asiakkaan omilla palvelimilla, tai pilvipalveluja hyödyntämällä. Näin voidaan saavuttaa merkittäviä hyötyjä asiakaskohtaisiin palvelimiin verrattuna, mutta virtualisoinnin aiheuttama resurssihukan takia hyötysuhdetta ei saada yhtä hyväksi kuin jaetuilla instansseilla.
 
-\section{Jaetut tietokannat ja ohjelmiston ajossa olevat instanssit}
+\subsection{Jaetut tietokannat ja ohjelmiston ajossa olevat instanssit}
 Jaetun fyysisen laitteiston lisäksi palvelimia ei ole jaettu asiakkaiden kesken esimerkiksi erillisillä virtualisoiduilla ympäristöillä. Virtualisoituihin ympäristöihin verrattuna tässä arkkitehtuurissa on etuna se, että se ei aiheuta samanlaista resurssihukkaa, kuin kokonaisten ympäristöjen virtualisointi \cite{huber2011evaluating}.
 
 Erityisesti asiakkaiden kesken jaetut tietokannat vaativat ohjelmiston suunnittelun kannalta erityistä huomiota. Koska asiakkaiden data sijaitsee samassa tietokannassa ja samoissa tauluissa, täytyy tietojen näkyvyys asiakkaiden välillä ratkaista ohjelmiston tasolla.
 
 Tietokannan jakaminen asiakkaiden välillä voidaan toteuttaa joko siten, että samassa tietokannassa on asiakaskohtaiset taulut, tai jakamalla tiedot rivikohtaisesti asiakkaiden välillä. Asiakaskohtaiset taulut ovat helppo tapa eriyttää data ja toteuttaa pääsynhallinta asiakkaiden tietojen välillä. Samalla tietokannan taulujen määrä kasvaa huomattavasti, joka aiheuttaa sen, ettei yhdellä tietokannalla voi palvella yhtä monta asiakasta kuin käyttämällä jaettuja tauluja \cite{chong2006multi}.
 
-\section{Palvelun asiakaskohtainen muokattavuus}
+\subsection{Palvelun asiakaskohtainen muokattavuus}
 Palvelun asiakaskohtainen muokattavuus on usein olennainen piirre moniasiakasjärjestelmässä, koska sillä on tarkoitus korvata asiakaskohtaiset asennukset, joissa tyypillisesti on tehty erilaisia räätälöintejä kullekin asiakkaalle. Koska kaikki asiakkaat käyttävät samaa instanssia ohjelmistosta, ei ohjelmakoodia muokkaamalla voida tehdä asiakaskohtaisia muutoksia. Ohjelmakoodissa täytyy siis jo suunnitteluvaiheessa ottaa huomioon riittävä sovelluksen muokattavuus, ja asiakkaiden täytyy voida muuttaa ohjelman toimintaa ajonaikaisesti.
 
 Ohjelmiston muokattavuuden tarpeet voivat olla hyvin eritasoisia. Yksinkertaisimmillaan järjestelmässä riittää pienet ulkoasun muokkaukset, mutta monimutkaisissa tapauksissa käyttäjät voivat luoda täysin omiin tarpeisiinsa erilaisia tietomalleja. Useimmiten tarve on jotain tältä väliltä, esimerkiksi omien työvaiheiden määrittämistä toiminnanohjausjärjestelmässä.
 
 \chapter{Tapauksia moniasiakasjärjestelmistä}
-Moniasiakasjärjestelmistä yleisesti on kirjoitettu jonkin verran, mutta hyvin raportoituja toteutuksia on niukasti saatavilla. Tässä luvussa käsittelen löytämiäni riittävän hyvin kuvattuja järjestelmiä ja pyrin tiivistämään järjestelmän arkkitehtuurin kannalta olennaiset ratkaisut ja ongelmat joita niillä on ratkaistu. Tapauksiksi on valittu Force.com \cite{weissman2009design}, IBM:n sähköisten sopimusten hallintajärjestelmä \cite{kwok2008software} ja ScrewTurn Wikin muunnos moniasiakasjärejestelmäksi \cite{bezemer2010challenges}.
+Moniasiakasjärjestelmistä yleisesti on kirjoitettu jonkin verran, mutta hyvin raportoituja toteutuksia on niukasti saatavilla. Tässä luvussa käsittelen löytämiäni riittävän hyvin kuvattuja järjestelmiä ja pyrin tiivistämään järjestelmän arkkitehtuurin kannalta olennaiset ratkaisut ja ongelmat joita niillä on ratkaistu. Tapauksiksi on valittu Force.com \cite{weissman2009design} ja IBM:n sähköisten sopimusten hallintajärjestelmä \cite{kwok2008software}, sekä ScrewTurn Wikin \cite{bezemer2010challenges} ja Codename ohjelmiston \cite{bezemer2010enabling} muunnokset moniasiakasjärejestelmiksi.
 
 
 \section{Force.com}
@@ -74,13 +87,20 @@ ScrewTurn Wiki on avoimen lähdekoodin ohjelmisto, jonka muuntamisesta moniasiak
 
 Käyttäjien tunnistaminen tapahtuu erillisellä Kerberos-protokollaa hyödyntävällä palvelulla. Tältä palvelulta saatavassa tunnisteessa voidaan tallentaa kaikki tarvittava tieto, jolla käyttäjän asiakkuus voidaan varmistaa. Lisäksi järjestelmässä on autentikaatiomoduuli, joka jokaisen palveluun tehtävän kyselyn yhteydessä tunnistaa käyttäjän asiakkuuden.
 
-Järjestelmän muokattavuutta ei tässä tapauksessa toteutettu kattavasti. Joidenkin asetusten käsitteleminen integroitiin alkuperäisestä toteutuksesta käyttämään tätä varten kehitettyjä kirjastoja, jotka vastaavat palvelun mukautuksesta. Myös tietokanta on muunnettu moniasiakkuusmallia tukevaksi hyvin minimaalisin muutoksin. Tietokantaa varten on toteutettu abstraktiotaso, joka muuntaa kaikki tietokantakyselyt suodattamaan tulokset tunnistautumispalvelun antaman asiakastunnisteen perusteella.
+Järjestelmän muokattavuutta ei tässä tapauksessa toteutettu kattavasti. Joidenkin asetusten käsitteleminen integroitiin alkuperäisestä toteutuksesta käyttämään tätä varten kehitettyjä kirjastoja, jotka vastaavat palvelun mukautuksesta. Myös tietokanta on muunnettu moniasiakkuusmallia tukevaksi hyvin pienin muutoksin. Tietokantaa varten on toteutettu abstraktiotaso, joka muuntaa kaikki tietokantakyselyt suodattamaan tulokset tunnistautumispalvelun antaman asiakastunnisteen perusteella.
 
+\section{Exact Codename}
+Exact Codename on Exact nimisen hollantilaisen ohjelmistoyrityksen kehitysprojekti, josta Bezemer ja Zaidman ovat tehneet ja raportoineet muunnoksen moniasiakasjärjestelmäksi \cite{bezemer2010enabling}. Codename on siis alunperin suunniteltu asiakaskohtaiseksi järjestelmäksi, mutta tutkimusprojektina muunnettu moniasiakasjärjestelmäksi minimaalisin muutoksin. Lähestyminen on siis samankaltainen kuin ScrewTurn Wikin tapauksessa, mutta siitä poiketen Codename on kaupallinen sovellus. Moniasiakasjärjestelmäksi muunnetun järjestelmän nimi tutkimusessa oli $Codename^{MT}$.
 
+$Codename^{MT}$ liitettiin Exactin keskitettyyn tunnistautumisjärjestelmään, ja Codenamen käyttäjäobjektiin lisättiin asiakkuuden tunniste TenantID. Järjestelmän arkkitehtuurin ansiosta TenantID oli tällä tavoin käytettävissä järjestelmän kaikissa osissa, ja sitä voitiin hyödyntää käyttäjän näkemän tiedon rajoittamiseksi. Tämän toteuttamiseksi tietokantaan lisättiin tauluille määritelmä siitä, onko kyseinen taulu asiakaskohtainen vai jaettu. Asiakaskohtaisiin tauluihin lisättiin lisäksi sarake asiakastunnisteelle, jonka mukaan käyttäjille näytettävä data rajataan asiakaskohtaisesti suodattamalla kaikkia tietokantahakuja sen mukaan.
+
+Järjestelmän mukautettavuuden toteutus jäi tutkimuksessa vajavaiseksi. Järjestelmään toteutettiin .NET-ohjelmistokehyksen valmiilla työkaluilla ulkoasun teemojen muokkaus asiakaskohtaisesti, sekä asiakaskohtaisten tiedostojen hallinta. Järjestelmän työnkulun asiakaskohtainen muokattavuus tunnistettiin olennaiseksi ja tutkimusta varten se suunniteltiin, mutta toteutus jäi sen osalta uupumaan.
+
+Codenamen muunnos moniasiakasjärjestelmäksi onnistui vain noin 100 rivin lisäyksellä lähdekoodiin, ja aikaa tähän kului vain viisi päivää. Lisäksi kehittäjille näkyvä muutos järjestelmässä on hyvin pieni. Muunnoksessa ei tarvinnut muuttaa mitään olemassa olevia järjestelmän kannalta oleellisia ominaisuuksia, eikä se näy loppukäyttäjälle mitenkään.
 
 \chapter{Johtopäätökset}
 
-Tässä kappaleessa vertaillaan tutkittaviksi valittuja moniasiakasjärjestelmätoteutuksia. Olennaisiksi seikoiksi asiakaskohtaisiin ohjelmistoihin verrattuna valitsin tehokkuus, skaalaus, tietoturva ja ohjelmakoodin monimutkaistuminen. 
+Tässä luvussa vertaillaan tutkittaviksi valittuja moniasiakasjärjestelmätoteutuksia. Olennaisiksi seikoiksi asiakaskohtaisiin ohjelmistoihin verrattuna olen valinnut seuraavat tekijät: tehokkuus, skaalaus, tietoturva ja ohjelmakoodin monimutkaistuminen. Koska kaksi neljästä valitusta tapauksesta oli muunnoksia asiakaskohtaisesta järjestelmästä moniasiakasjärjestelmäksi, viimeinen alaluku käsittelee vielä järjestelmän muunnosta omana haasteenaan.
 
 \section{Tehokkuus}
 Koska jokaisen asiakkaan käyttäjät käyttävät ohjelmiston samaa instanssia, vaikuttaa heidän toimintansa järjestelmässä toisiinsa. Yhden asiakkaan aiheuttaessa ongelmatilanteen järjestelmään, voivat kaikkien asiakkaiden järjestelmät olla poissa käytöstä. Tästä syystä on erityisen oleellista, että käyttäjä ei pysty tekemään sellaista toimenpidettä järjestelmässä, jonka tehokkuus on niin huono, että se vaikuttaa muiden asiakkaiden käyttökokemukseen.
@@ -104,7 +124,8 @@ Tietoturvan kannalta kaikissa tutkituissa tapauksissa on pääpiirteittäin sama
 Tietoturvakompromissi joka moniasiakasympäristöissä ei ole ratkaistavissa kuten asiakaskohtaisessa kohtaisissa järjestelmissä, on kohdistetun hyökkäyksen mahdollisuus vaarantaa kaikkien asiakkaiden data kerralla. Toisin sanoen, jos hyökkääjä tahtoo päästä tietyn asiakkaan tietoihin käsiksi, onnistuessaan hän saa samalla kaikkien asiakkaiden tiedot. Tämän estämiseksi on asiakkailla väistämättä oltava vähintäänkin omat asiakaskohtaiset tietokannat.
 
 \section{Ohjelmakoodin monimutkaistuminen}
-Koska moniasiakasjärjestelmässä monia asioita, jotka ennen pystyttiin huomioimaan muilla tavoin, joudutaan nyt tekemään ajonaikaisesti ohjelmakoodissa, on se kehittäjille väistämättä monimutkaisempi. Tämän takia vaikka palvelinten ylläpidon puolelta työmäärä yksinkertaistuu ja vähenee, kehitystiimillä työtä on enemmän ja se on haastavampaa.
+
+\todo{ekan lauseen sanajärjestys} Koska moniasiakasjärjestelmässä monia asioita, jotka ennen pystyttiin huomioimaan muilla tavoin, joudutaan nyt tekemään ajonaikaisesti ohjelmakoodissa, on se kehittäjille väistämättä monimutkaisempi. Tämän takia vaikka palvelinten ylläpidon puolelta työmäärä yksinkertaistuu ja vähenee, kehitystiimillä työtä on enemmän ja se on haastavampaa.
 
 Eniten monimutkaisuutta aiheuttava tekijä moniasiakasjärjestelmissä on asiakaskohtainen muokattavuus. Koska tutkituissa tapauksissa asiakaskohtainen muokattavuus on toteutettu hyvin eri määrin, myös ohjelmakoodin ja järjestelmän arkkitehtuurin monimutkaisuus on tapausten välillä hyvin eritasoista.
 
@@ -116,9 +137,17 @@ ScrewTurn Wikin moniasiakasjärjestelmän toteutus taas on toteutettu minimaalis
 
 Järjestelmän suunnittelijan kannalta on siis olennaista miettiä, kuinka paljon asiakkaan on voitava muokata ohjelmistoa omaan tarpeeseensa, ja miten tämä muokattavuus on helpoin toteuttaa. Jos käyttäjät hyötyvät monimutkaisista asiakaskohtaisista mukautuksista ja integraatioista paljon, voi olla tehokkaampaa ylläpitää ohjelmistosta asiakaskohtaisia versioita. Toisaalta useissa tapauksissa käyttäjien muokkaustarpeet voivat olla hyvin yksinkertaisia, ja asiakaskohtainen muokattavuus on tällöin helppo toteuttaa ajonaikaisesti.
 
+\section{Järjestelmän muunnos}
+
+Valituista tapauksista $Codename^{MT}$ ja ScrewTurn Wiki olivat muunnoksia asiakaskohtaisesta järjestelmästä moniasiakasjärjestelmäksi. Erityisesti $Codename^{MT}$ tapauksessa tarkoituksena oli tehdä muunnos minimaalisilla muutoksillä järjestelmän lähdekoodiin. Molemmissa tapauksissa asiakaskohtainen muokattavuus toteutettiin  vain pienimuotoisesti. Tapauksien perusteella voidaan kuitenkin osoittaa, että muunnos moniasiakasjärjestelmään jälkikäteen on mahdollista toteuttaa jopa kohtuullisen vaivattomasti. Suurin vaikuttava tekijä muunnoksen monimutkaisuuteen vaikuttaa olevan asiakaskohtaisen muokattavuuden toteutuksen laajuus.
+
+Molemmissa tapauksissa pääsynhallinta dataan muutettiin asiakaskohtaiseksi lisäämällä tauluihin sarake asiakkuustunnisteelle, ja toteuttamalla erillinen moduuli tietokantakyselyjen muuttamiseksi. Tämän moduulin tehtävä on käsitellä kaikkia tietokantakyselyjä siten, että ne suodatetaan asiakkuustunnisteen perusteella käsittelemään vain tietyn asiakkaan dataa. Tällä tavoin toteutettuna muutos vaikuttaa erittäin vähän ohjelmistokehittäjien työhön, koska suodatus on abstraktoitu ohjelmakoodin seasta omaksi moduulikseen. Näin kehittäjien on myös vaikeampi tehdä virheitä, kun suodatus koskaa automaattisesti kaikkia tietokantakyselyjä.
+
 \chapter{Yhteenveto}
+Tutkielmassa selvitettiin moniasiakasjärjestelmän eroavaisuuksia perinteiseen asiakaskohtaiseen järjestelmään, ja erityisesti moniasiakasmallin haasteita. Etsin hyvin dokumentoituja tapauksia tällaisista järjestelmistä, ja vertailin miten näissä on ratkaistu moniasiakasjärjestelmän aiheuttamia haasteita. Tutkielmassa on esimerkkitapausten lisäksi käytetty aiheesta aiemmin kirjoitettuja artikkeleita ongelman taustoittamiseksi ja moniasiakasjärjestelmän määrittelemiseksi.
+
 Moniasiakasjärjestelmämalli on monille palveluntarjoajille hyvä vaihtoehto, jolla palvelun kustannustehokkuutta voidaan parantaa. Suurin osa moniasiakasjärjestelmän haasteista on ratkaistavissa siten, että ainoana kompromissina asiakaskohtaiseen järjestelmään on ohjelmiston monimutkaistuminen. Ohjelmiston monimutkaistuminen kuitenkin on useissa tapauksissa varmasti kannattava ratkaisu moniasiakasjärjestelmän tarjoamien etujen takia. Tämän tutkielman puitteissa ainoa esiin noussut ratkaisematon haaste on asiakkaan parhaan mahdollisen tietoturvan saavuttaminen. Asiakaskohtaisessa asennuksessa väistämättä voidaan tehdä vahvempi tietoturva, rajaamalla järjestelmään pääsyä vain asiakasorganisaatiolle. Lisäksi toiseen asiakkaaseen kohdennettu isku ei vaaranna kaikkien muiden tietoja asiakaskohtaisessa ympäristössä.
 
 Järjestelmän toteutusta suunnitellessa vaaditun asiakaskohtaisen muokattavuuden määritteleminen on ehkä yksittäisenä tekijänä oleellisin huomioitava. Mitä vapaammin asiakkaan muokattavissa järjestelmä on, sitä monimutkaisempia ratkaisuja joudutaan toteuttamaan. Yksinkertaisimmillaan mukautettavuus voi olla ennalta määritettyjä asetuksia tietokannassa, ja monimutkaisimmillaan tietokantamalli, jossa käyttäjä pystyy määrittämään mielivaltaisesti virtuaalisia tauluja järjestelmään.
 
-\cite{weissman2010custom}
+\todo{tähän viel kappale muunnoksesta ehkä??}
